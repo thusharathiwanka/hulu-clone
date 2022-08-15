@@ -1,10 +1,9 @@
 import Image from "next/image";
-import { HomeIcon } from "@heroicons/react/outline";
 
 import HeaderItem from "./HeaderItem";
-import { mainNavigationList } from "../../lib/navigation";
+import { mainNavigationList } from "../../util/navigation";
 
-export const Header = () => {
+const Header = () => {
 	return (
 		<header className="flex flex-col sm:flex-row m-5 justify-between items-center h-auto">
 			<div className="flex flex-grow justify-evenly max-w-xl">
@@ -22,3 +21,5 @@ export const Header = () => {
 		</header>
 	);
 };
+
+export default Header;

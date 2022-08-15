@@ -1,7 +1,8 @@
 import Head from "next/head";
-import { Header } from "../components/header/Header";
+import Header from "../components/header/Header";
+import Nav from "../components/nav/Nav";
 
-export default function Home() {
+const Home = () => {
 	return (
 		<div>
 			<Head>
@@ -11,6 +12,10 @@ export default function Home() {
 			</Head>
 			{/* Header */}
 			<Header />
+			{/* Nav */}
+			<Nav />
 		</div>
 	);
-}
+};
+
+export default Home;

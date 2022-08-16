@@ -1,8 +1,12 @@
 import Head from "next/head";
+
 import Header from "../components/header/Header";
 import Nav from "../components/nav/Nav";
+import Results from "../components/results/Results";
 
-const Home = () => {
+import { requests } from "../util/requests";
+
+const Home = ({ results }) => {
 	return (
 		<div>
 			<Head>
@@ -14,8 +18,21 @@ const Home = () => {
 			<Header />
 			{/* Nav */}
 			<Nav />
+			{/* Results */}
+			<Results results={results} />
 		</div>
 	);
 };
+
+export async function getServerSideProps(context) {
+	const genre = context.query.genre;
+
+	const request = await fetch(requests[genre]?.url || requests.fetchTrending.url);
+	const data = await request.json();
+
+	return {
+		props: data,
+	};
+}
 
 export default Home;
